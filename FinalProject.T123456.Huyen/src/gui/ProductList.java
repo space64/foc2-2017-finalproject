@@ -3,9 +3,6 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.util.Vector;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,7 +11,7 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import da.SQLiteDB;
+import da.ProductDA;
 
 public class ProductList extends JFrame {
 
@@ -53,12 +50,9 @@ public class ProductList extends JFrame {
 		
 		table = new JTable();
 		
-		SQLiteDB db = new SQLiteDB();
-		ResultSet productList = db.getProducts();
-		DefaultTableModel productModel = db.getProductModel();
-		table.setModel(productModel);
-		
 		scrollPane.setViewportView(table);
+		
+		ProductDA db = new ProductDA();
 	}
 	
 

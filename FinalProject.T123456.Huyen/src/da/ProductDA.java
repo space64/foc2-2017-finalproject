@@ -1,11 +1,14 @@
 package da;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Vector;
+
+import javax.swing.table.DefaultTableModel;
 
 public class ProductDA extends WHConnection{
 
@@ -47,5 +50,29 @@ public class ProductDA extends WHConnection{
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+	}
+	
+	public static DefaultTableModel buildTableModel(ResultSet rs) throws SQLException {
+
+		ResultSetMetaData metaData = rs.getMetaData();
+
+		// tên cột - trường dữ liệu
+		Vector<String> columnNames = new Vector<String>();
+		int columnCount = metaData.getColumnCount();
+		for (int column = 1; column <= columnCount; column++) {
+			columnNames.add(metaData.getColumnName(column));
+		}
+
+		// các dòng dữ liệu, gồm nhiều dòng, mỗi dòng gồm nhiều trường (kiểu object)
+		Vector<Vector<Object>> data = new Vector<Vector<Object>>();
+		while (rs.next()) {
+			Vector<Object> row = new Vector<Object>();
+			for (int columnIndex = 1; columnIndex <= columnCount; columnIndex++) {
+				row.add(rs.getObject(columnIndex));
+			}
+			data.add(row);
+		}
+
+		return new DefaultTableModel(data, columnNames);
 	}
 }
