@@ -4,6 +4,7 @@ public class Brand {
 	private int id;
 	private String name;
 	
+	public Brand(){}
 	public Brand(int id, String name) {
 		super();
 		this.id = id;

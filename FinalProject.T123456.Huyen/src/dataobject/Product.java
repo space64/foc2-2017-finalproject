@@ -9,6 +9,16 @@ public class Product {
 	private UnitOfMeasure unitOfMeasure;
 	private double unitPrice;
 	
+	public Product(){
+		id = -1;
+		productCode = null;
+		productName = null;
+		category = null;
+		brand = null;
+		unitOfMeasure = null;
+		unitPrice = 0;
+	}
+	
 	public Product(int id, String productCode, String productName, Category category, Brand brand,
 			UnitOfMeasure unitOfMeasure, double unitPrice) {
 		super();

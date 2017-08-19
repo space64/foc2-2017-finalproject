@@ -17,6 +17,7 @@ public class ProductList extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
+	ProductDA productDA;
 
 	/**
 	 * Launch the application.
@@ -47,12 +48,11 @@ public class ProductList extends JFrame {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		contentPane.add(scrollPane, BorderLayout.CENTER);
-		
+		productDA = new ProductDA();
 		table = new JTable();
-		
+		DefaultTableModel model = productDA.getProducts();
+		table.setModel(model);
 		scrollPane.setViewportView(table);
-		
-		ProductDA db = new ProductDA();
 	}
 	
 

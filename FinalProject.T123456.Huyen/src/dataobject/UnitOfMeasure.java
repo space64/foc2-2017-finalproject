@@ -4,6 +4,7 @@ public class UnitOfMeasure {
 	private int id;
 	private String name;
 	
+	public UnitOfMeasure(){}
 	public UnitOfMeasure(int id, String name) {
 		super();
 		this.id = id;
