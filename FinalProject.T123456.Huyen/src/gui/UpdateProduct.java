@@ -125,13 +125,13 @@ public class UpdateProduct extends JFrame implements ActionListener {
 		txtProductCode.setBounds(137, 68, 173, 20);
 		contentPane.add(txtProductCode);
 		
-		JLabel lblAddProduct = new JLabel("Add Product");
+		JLabel lblAddProduct = new JLabel("Update Product");
 		lblAddProduct.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAddProduct.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblAddProduct.setBounds(39, 27, 229, 14);
 		contentPane.add(lblAddProduct);
 		
-		btnAdd = new JButton("Add");
+		btnAdd = new JButton("Update");
 		btnAdd.setBounds(61, 272, 89, 23);
 		contentPane.add(btnAdd);
 		btnAdd.addActionListener(this);
